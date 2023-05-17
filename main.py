@@ -40,12 +40,9 @@ def main():
     elif option == '3':
         exit()
 
-    
-    
-
-
 
 def reg():
+    os.system("cls")
     print("Welcome")
     username = input("Username: ")
     password = input("Password: ")
@@ -62,9 +59,6 @@ def reg():
         input()
         main()
         
-
-
-
 def login():
     os.system('cls')
     print("Welcome")
@@ -80,19 +74,6 @@ def login():
         print(login['message'])
         input()
         
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
