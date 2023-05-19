@@ -1,25 +1,25 @@
-# simple login/register script for keyauth.cc
+# key auth login
 
-import binascii 
+import binascii  # hex encoding
 import hashlib
-import json as jsond  
+import json as jsond  # json
 import os
-import platform  
-import subprocess  
+import platform  # check platform
+import subprocess  # needed for mac device
 import sys
-import time 
+import time  # sleep before exit
 from datetime import datetime
 from time import sleep
-from uuid import uuid4  
+from uuid import uuid4  # gen random guid
 import keyauth
 from keyauth import *
 import hashlib
 from hashlib import *
 getchecksum = lambda: hashlib.sha256(open(sys.argv[0], 'rb').read()).hexdigest()
 keyauthapp = api(
-    name = "your name",
-    ownerid = "your owner id",
-    secret = "your secret",
+    name = "mercierr",
+    ownerid = "Z3CpLM1OGC",
+    secret = "f8c18d81795e34295c295599e1c78514ad16d3b40ec5d358e851b5752eb83939",
     version = "1.0",
     hash_to_check = getchecksum()
 )
@@ -37,44 +37,60 @@ def main():
         reg()
     elif option == '2':
         login()
-    elif option == '3':
-        exit()
+
+    
+    
+
 
 
 def reg():
-    os.system("cls")
     print("Welcome")
     username = input("Username: ")
     password = input("Password: ")
     license = input("License: ")
     hwid = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
     register = keyauthapp.register(username, password,  license, hwid)
-    if register['status'] == 200:
+    if register['success']:
         print("Registered successfully!")
         input()
         main()
-        
     else:
         print(register['message'])
         input()
         main()
-        
+
+
+
 def login():
-    os.system('cls')
     print("Welcome")
     username = input("Username: ")
     password = input("Password: ")
     hwid = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
     login = keyauthapp.login(username, password, hwid)
-    if login['status'] == 200:
-        print("Logged in successfully!")
+    if login['success']:
+        print("Welcome to keyauth login")
         input()
-        
+        main1()
     else:
         print(login['message'])
         input()
-        
+        main()
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+def main1():
+    print("Logged in successfully!")
+    input()
 
 main()
