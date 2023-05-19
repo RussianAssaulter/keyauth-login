@@ -17,9 +17,9 @@ import hashlib
 from hashlib import *
 getchecksum = lambda: hashlib.sha256(open(sys.argv[0], 'rb').read()).hexdigest()
 keyauthapp = api(
-    name = "mercierr",
-    ownerid = "Z3CpLM1OGC",
-    secret = "f8c18d81795e34295c295599e1c78514ad16d3b40ec5d358e851b5752eb83939",
+    name = "",
+    ownerid = "",
+    secret = "",
     version = "1.0",
     hash_to_check = getchecksum()
 )
