@@ -1,11 +1,15 @@
 # keyauth-login / Register Script
-Key auth login / register script for you program. cooked it up in like 20 minutes, will add chat support soon
-
-Todo:
-- Optimize 
-- Add examples to the repo
-- Add chat support
+Script using the [Keyauth](https://keyauth.cc) API to allow users to signup and register for your software.
 
 
+## Setup ## 
+- **pip install keyauth-api**
+- **Add the script to your file, changing whats necessary**
 
-Feel free to star
+
+### Overview ###
+> This project is being maintained and updated as of: 08/14/23
+
+
+
+
